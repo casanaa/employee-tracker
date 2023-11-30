@@ -1,28 +1,25 @@
 const inquirer = require('inquirer');
-require("console.table");
 const mysql = require('mysql2');
 
 
-const db = mysql.createConnection;(
+const connection = mysql.createConnection(
 {
  PORT : process.env.PORT || 3000
-},
+})
 
 
-// Connect to database
- db = mysql.createConnection(
+  // Connect to database
+ const db = mysql.createConnection;(
   {
     host: 'localhost',
-    // MySQL username,
     user: 'root',
-    // MySQL password
     password: 'BlueCord#1',
     database: 'employee_db'
   },
   console.log(`Connected to the employee_db database.`)
-));
+ );
 
-db.connect((err) => {
+connection.connect((err) => {
     if (err) throw err;
     console.log('connected as id ' + connection.threadId);
     afterConnection();
@@ -89,9 +86,7 @@ db.connect((err) => {
       };
     });
   
-    const viewAllDepartments = () => {
-      var departments = Department.findAll({ raw: true }).then((data) => {
-        console.table(data);
+    
 
 // view all employees function
 function viewEmployee() {
@@ -108,7 +103,7 @@ function viewEmployee() {
       res.status(400).json({ error: err.message });
       return;
     }
-    console.table(result);
+    
     mainMenu();
   })
 };
@@ -193,7 +188,7 @@ function addEmployeeRole(roles) {
             res.status(400).json({ error: err.message });
             return;
           }
-          console.table(result);
+          
           console.log("Successfully added employee");
           mainMenu();
         })
@@ -215,7 +210,7 @@ function addEmployee() {
       name: title,
       value: id
     }));
-    console.table(result);
+    
     addEmployeeRole(roles);
   })
 }
@@ -236,7 +231,7 @@ function updateEmployeeRole() {
       value: id
     }));
     console.error(err);
-    console.table(result);
+    
     employeeRoles(employees);
   });
 };
@@ -257,7 +252,7 @@ function employeeRoles(employees) {
       name: title,
       value: id
     }));
-    console.table(result);
+    
 
     updatePrompt(employees, roles);
   });
@@ -294,10 +289,10 @@ function updatePrompt(employees, roles) {
             res.status(400).json({ error: err.message });
             return;
           }
-          console.table(result);
+          
           console.log("Employees role successfully updated");
           mainMenu();
         }
-      )
-    })
-}})}
+      );
+    });
+  };
