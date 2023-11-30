@@ -4,13 +4,7 @@ const mysql = require('mysql2');
 
 const connection = mysql.createConnection(
 {
- PORT : process.env.PORT || 3000
-})
-
-
-  // Connect to database
- const db = mysql.createConnection;(
-  {
+    port: 3000,
     host: 'localhost',
     user: 'root',
     password: 'BlueCord#1',
