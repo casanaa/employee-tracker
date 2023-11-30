@@ -8,10 +8,10 @@ Description:
 The application allows the user pull up employees by their name, department, or manager depending on what information they need.
 
 
-Motivation:
+Issues: too many. Im sure that with more time I would be able to get the thing going right, but for now this is it.
 
 
-Success: I had success in creating the pretty title and getting the department table to come up.
+Success: I had success in creating a bunch of files and getting the initial menu to come up.
 
 
 
